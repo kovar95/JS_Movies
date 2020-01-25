@@ -150,21 +150,21 @@ function createElement(someElement, someIndex) {
 		mySpan.addEventListener("click", ()=> {
 			movies.splice(someIndex, 1);
 			myGallery.innerHTML = "";
-			movies.forEach((element, index)=> {
-				createElement(element, index);
-			 })
+			displayMovies();
 		})
 	}	
 }
 
-movies.forEach((element, index)=> {
-	createElement(element, index);
- })
+function displayMovies() {
+	movies.forEach((element, index)=> {
+		createElement(element, index);
+	})
+}
+
+displayMovies();
 
 input.addEventListener("keyup", ()=> {
 	var myGallery = document.querySelector("div.gallery");
 	myGallery.innerHTML = "";
-	movies.forEach((element, index)=> {
-			createElement(element, index);
-	})
+	displayMovies();
 })
