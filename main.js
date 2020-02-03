@@ -143,21 +143,29 @@ function createElement(someElement, someIndex) {
 		myHeading.textContent = someElement.movieName;
 		myImg.setAttribute("src", someElement.imgUrl);
 		mySpan.textContent = "Remove";
-		myDiv.appendChild(mySpan);
-		myDiv.appendChild(myImg);
-		myDiv.appendChild(myHeading);
+		makeDiv(myDiv, mySpan, myImg, myHeading);
 		myGallery.appendChild(myDiv);
-		mySpan.addEventListener("click", ()=> {
-			movies.splice(someIndex, 1);
-			myGallery.innerHTML = "";
-			displayMovies();
-		})
+		addClick(mySpan, myGallery, someIndex);
 	}	
 }
 
 function displayMovies() {
 	movies.forEach((element, index)=> {
 		createElement(element, index);
+	})
+}
+
+function makeDiv(someDiv, someSpan, someImg, someHeading) {
+	someDiv.appendChild(someSpan);
+	someDiv.appendChild(someImg);
+	someDiv.appendChild(someHeading);
+}
+
+function addClick(someSpan, someGallery, index) {
+	someSpan.addEventListener("click", ()=> {
+		movies.splice(index, 1);
+		someGallery.innerHTML = "";
+		displayMovies();
 	})
 }
 
