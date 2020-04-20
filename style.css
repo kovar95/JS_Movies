@@ -34,11 +34,19 @@ body h1 {
     background-color: #dd1717;
 }
 
+body div.search {
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    top: 0px;
+}
+
 body div.gallery {
-    width: 1000px;
+    max-width: 1000px;
     margin: 40px auto;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 body div.gallery div {
@@ -116,4 +124,55 @@ button:hover {
     color: #5353ce;
     background-color: white;
     box-shadow: -5px -5px 10px #a11515;
+}
+
+@media screen and (max-width: 1100px) {
+    body div.search {
+        width: 400px;
+        top: 50px;
+        right: 0;
+    }
+
+    body h1 {
+        height: 105px;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+
+    body h1 {
+        font-size: 30px;
+    }
+
+    body div.gallery div {
+        width: 90px;
+        height: 137px;
+        margin: 10px;
+    }
+
+    body div.gallery div img {
+        width: 75px;
+        height: 92px;
+    }
+
+    body div.gallery div span {
+        width: 43px;
+        height: 20px;
+        font-size: 11px;
+    }
+
+    body div.gallery div h5 {
+       font-size: 7px;
+    }
+
+    body div.search button{
+        right: 222px;
+    }
+
+    body div.search input{
+        right: 18px;
+        width: 197px;
+    }
+
 }
